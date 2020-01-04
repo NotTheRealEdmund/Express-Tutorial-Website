@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes for express web framework</title>
+        <style>
+            body {
+                width: 700px;
+                margin: 0 auto;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            form, #notes {
+                display: block;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                -webkit-padding-before: 0em;
+                -webkit-padding-start: 0em;
+                -webkit-padding-end: 0em;
+                -webkit-padding-after: 0em;
+                border: 0px;
+                border-image-source: initial;
+                border-image-slice: initial;
+                border-image-width: initial;
+                border-image-outset: initial;
+                border-image-repeat: initial;
+                min-width: -webkit-min-content;
+                padding: 30px;
+            }
+            .ghost-input {
+                display: block;
+                font-weight:300;
+                width: 100%;
+                font-size: 25px;
+                border:0px;
+                outline: none;
+                width: 100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                color: #4b545f;
+                background: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px 15px;
+                margin: 30px 0px;
+                -webkit-transition: all 0.1s ease-in-out;
+                -moz-transition: all 0.1s ease-in-out;
+                -ms-transition: all 0.1s ease-in-out;
+                -o-transition: all 0.1s ease-in-out;
+                transition: all 0.1s ease-in-out;
+            }
+            .ghost-input:focus {
+                border-bottom:1px solid #ddd;
+            }
+            .ghost-button {
+                background-color: transparent;
+                border:2px solid #ddd;
+                padding:10px 30px;
+                width: 100%;
+                min-width: 350px;
+                -webkit-transition: all 0.1s ease-in-out;
+                -moz-transition: all 0.1s ease-in-out;
+                -ms-transition: all 0.1s ease-in-out;
+                -o-transition: all 0.1s ease-in-out;
+                transition: all 0.1s ease-in-out;
+            }
+            .ghost-button:hover {
+                border:2px solid #515151;
+            }
+            h2 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/notes" method="POST">
+            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+            <input type="submit" class="ghost-button" value="Read notes">
+        </form>
+        <div id="notes">
+            <h2>Getting Started With EJS Templates With Express</h2>
+            <p>
+                EJS is a template language which allows us to write more dynamic web pages.<br><br>
+                First we have to install EJS, in VS code cmd, type in: npm install ejs<br><br>
+                You should see changes to package.json and package-lock.json files and node_modules folder.<br><br>
+                Create a new file "template.js" inside the programs folder.<br><br>
+                Create a new folder called "views" inside the programs folder.<br><br>
+                Then create a new file "mytemplate.ejs" inside the views folder.<br><br>
+                In "mytemplate.ejs", the "exampleVar" enclosed within the tags "<%=" and "%>" can be changed dynamically, 
+                based on the javascript file.<br><br>
+                To run the server, in VS code cmd, type in: node template<br><br>
+                To close server, press Ctrl-C<br><br>
+                Go to browser and type: "localhost:3000/books".<br><br>
+                You'll see that the webpage will show the same template in mytemplate.ejs but "exampleVar" is replaced with "books".<br><br>
+                Search results get dynamically added to webpage.<br><br>
+                <br><br>
+                Now we'll show multiple items in an array using for loop in EJS.<br><br>
+                Create a new file "template2.js" inside the programs folder.<br><br>
+                Then create a new file "mytemplate2.ejs" inside the views folder.<br><br>
+                To run the server, in VS code cmd, type in: node template2<br><br>
+                To close server, press Ctrl-C<br><br>
+                Go to browser and type: "localhost:3000" and you'll see the list.<br><br>
+                With EJS, that list will change dynamically, if the array in javascript changes, so will it in EJS.<br><br>
+                <br><br>
+                Now we'll use if-else statements in EJS.<br><br>
+                Create a new file "template3.js" inside the programs folder.<br><br>
+                Then create a new file "mytemplate3.ejs" inside the views folder.<br><br>
+                To run the server, in VS code cmd, type in: node template3<br><br>
+                To close server, press Ctrl-C<br><br>
+                Go to browser and type: "localhost:3000" and you'll see the list.<br><br>
+                As per EJS, if-else statements also have dynamic properties.<br><br>
+                In other words, if the age of a person is changed in javascript, the output in EJS might change.<br><br>
+            </p>
+        </div>
+    </body>
+</html>

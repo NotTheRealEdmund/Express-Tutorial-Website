@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes for express web framework</title>
+        <style>
+            body {
+                width: 700px;
+                margin: 0 auto;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            form, #notes {
+                display: block;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                -webkit-padding-before: 0em;
+                -webkit-padding-start: 0em;
+                -webkit-padding-end: 0em;
+                -webkit-padding-after: 0em;
+                border: 0px;
+                border-image-source: initial;
+                border-image-slice: initial;
+                border-image-width: initial;
+                border-image-outset: initial;
+                border-image-repeat: initial;
+                min-width: -webkit-min-content;
+                padding: 30px;
+            }
+            .ghost-input {
+                display: block;
+                font-weight:300;
+                width: 100%;
+                font-size: 25px;
+                border:0px;
+                outline: none;
+                width: 100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                color: #4b545f;
+                background: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px 15px;
+                margin: 30px 0px;
+                -webkit-transition: all 0.1s ease-in-out;
+                -moz-transition: all 0.1s ease-in-out;
+                -ms-transition: all 0.1s ease-in-out;
+                -o-transition: all 0.1s ease-in-out;
+                transition: all 0.1s ease-in-out;
+            }
+            .ghost-input:focus {
+                border-bottom:1px solid #ddd;
+            }
+            .ghost-button {
+                background-color: transparent;
+                border:2px solid #ddd;
+                padding:10px 30px;
+                width: 100%;
+                min-width: 350px;
+                -webkit-transition: all 0.1s ease-in-out;
+                -moz-transition: all 0.1s ease-in-out;
+                -ms-transition: all 0.1s ease-in-out;
+                -o-transition: all 0.1s ease-in-out;
+                transition: all 0.1s ease-in-out;
+            }
+            .ghost-button:hover {
+                border:2px solid #515151;
+            }
+            h2 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/notes" method="POST">
+            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+            <input type="submit" class="ghost-button" value="Read notes">
+        </form>
+        <div id="notes">
+            <h2>How does MiddleWare Work and Creating Custom Middleware</h2>
+            <p>
+                Middleware is the code that gets executed between the user request and the server itself.<br><br>
+                We've used middleware before to work with JSON data in "demo3.js", app.use(bodyparser.json());<br><br>
+                Behind the scenes, bodyparser.json(), is a middleware function that when the user makes a request, 
+                takes the user request, checks to see if the user sent any JSON data, processes it, attaches it to the request body, 
+                and then calls the "next" method to let the server know that processing of this request is done and another request can be sent.<br>
+                <br><br>
+                Let's create our own middleware function.<br><br>
+                Create a new file "middleware.js" inside the programs folder.<br><br>
+                To run the server, in VS code cmd, type in: node middleware<br><br>
+                To close server, press Ctrl-C<br><br>
+                Go to browser and type: "localhost:3000".<br><br>
+                In the browser you'll see 'Hello World!', but more importantly, 
+                in VS code cmd you should see '/ GET'.<br><br>
+                This is proof that the middleware is working correctly.<br><br>
+                <br><br>
+                Now let's say that we only want this middleware to execute only when a certain route is executed and not all routes.<br><br>
+                Meaning that the default route will show 'Hello World!' in browser but nothing in VS code cmd,
+                whereas the certain route will show 'Cannot GET /example' in browser but in VS code cmd you'll see '/ GET' which means
+                that the middleware still worked.<br><br>
+                Create a new file "middleware2.js" inside the programs folder.<br><br>
+                To run the server, in VS code cmd, type in: node middleware2<br><br>
+                To close server, press Ctrl-C<br><br>
+                Go to browser and type: "localhost:3000/example" and "localhost:3000" to see the difference.<br><br>
+                <br><br>
+                Now we'll use middleware functions to modify the request object and the response object.<br><br>
+                Create a new file "middleware3.js" inside the programs folder.<br><br>
+                To run the server, in VS code cmd, type in: node middleware3<br><br>
+                To close server, press Ctrl-C<br><br>
+                Go to browser and type: "localhost:3000".<br><br>
+                You'll see in the VS code cmd 'banana' which we've added to the request object and printed out.<br><br>
+            </p>
+        </div>
+    </body>
+</html>
