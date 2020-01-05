@@ -8,7 +8,7 @@
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
             }
-            form, #notes {
+            #main-form, #notes {
                 display: block;
                 -webkit-margin-start: 0px;
                 -webkit-margin-end: 0px;
@@ -68,10 +68,38 @@
             h2 {
                 text-align: center;
             }
+            #button_previous {
+                padding: 20px;
+                margin-bottom: 50px;
+                float: left;
+                cursor: pointer;
+            }
+            #button_next {
+                padding: 20px;
+                margin-bottom: 50px;
+                float: right;
+                cursor: pointer;
+            }
+            .link {
+                color: #494949;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: #ffffff;
+                padding: 20px;
+                border: 4px solid #494949;
+                display: inline-block;
+                transition: all 0.4s ease 0s;
+            }
+            .link:hover {
+                color: #ffffff;
+                background: #f6b93b;
+                border-color: #f6b93b;
+                transition: all 0.4s ease 0s;
+            }
         </style>
     </head>
     <body>
-        <form action="/notes" method="POST">
+        <form id="main-form" action="/notes" method="POST">
             <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
             <input type="submit" class="ghost-button" value="Read notes">
         </form>
@@ -87,5 +115,13 @@
                 because joi declared it to be required.<br><br>
             </p>
         </div>
+        <form action="/notes" method="POST">
+            <input name="topic" type="hidden" value="6"/> 
+            <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
+        </form>
+        <form action="/notes" method="POST">
+            <input name="topic" type="hidden" value="8"/> 
+            <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
+        </form>
     </body>
 </html>
