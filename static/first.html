@@ -8,6 +8,17 @@
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
             }
+            .retroshadow {
+                font-family: "Avant Garde", "Century Gothic", "AppleGothic", sans-serif;
+                font-size: 92px;
+                text-align: center;
+                color: #2c2c2c;
+                background-color: #d5d5d5;
+                letter-spacing: .05em;
+                text-shadow:
+                4px 4px 0px #d5d5d5,
+                7px 7px 0px rgba(0, 0, 0, 0.2);
+            }
             #main-form, #notes {
                 display: block;
                 -webkit-margin-start: 0px;
@@ -93,6 +104,9 @@
         </style>
     </head>
     <body>
+        <h1>
+            <div class="retroshadow">NOTES</div>
+        </h1>
         <form id="main-form" action="/notes" method="POST">
             <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
             <input type="submit" class="ghost-button" value="Read notes">
