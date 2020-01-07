@@ -3,7 +3,30 @@
     <head>
         <title>Notes for express web framework</title>
         <style>
-            body {
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding-left:15%;
+                overflow: hidden;
+                background-color: #333;
+                border-radius: 5px;
+            }
+            nav li {
+                float: left;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav li a {
+                display: block;
+                color: grey;
+                text-align: center;
+                padding: 20px 15px;
+                text-decoration: none;
+            }
+            nav li a:hover {
+                color: white;
+            }
+            #main-body {
                 width: 800px;
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
@@ -110,48 +133,57 @@
         </style>
     </head>
     <body>
-        <h1>
-            <div class="retroshadow">NOTES</div>
-        </h1>
-        <form id="main-form" action="/notes" method="POST">
-            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
-            <input type="submit" class="ghost-button" value="Read notes">
-        </form>
-        <div id="notes">
-            <h2>Working with Express Http Get Request, Route Params and Query Strings</h2>
-            <p>
-                In "app.js", we already have one route, which returns 'Hello world!'.<br><br>
-                Now we'll give it another route.<br><br>
-                To run the server, in VS code cmd, type in: node app<br><br>
-                To close server, press Ctrl-C<br><br>
-                Go to browser and type: "localhost:3000/example".<br><br>
-                You'll see "Hitting example route".<br><br>
-                <br><br>
-                We'll use route parameters to capture values specified at their position in the url.<br><br>
-                In "app.js", we will extend the "/example" route such that when we type in: localhost:3000/example/edmund/21<br><br>
-                You'll see that the message is personalised and the webpage shows 'edmund : 21'<br><br>
-                This is how you get data from the user using route parameters.<br><br>
-                <br><br>
-                There is also another data you can send back called query strings.<br><br>
-                In a url, the query string is the part that starts with a question mark ('?').<br><br>
-                It can be accessed using "req.query".<br><br>
-                Now go to browser and type: "localhost:3000/example/edmund/21?gender=male"<br><br>
-                The webpage will show the same thing as before, but you'll see in the VS code cmd that the query string is { gender: 'male' }<br><br>
-                To pass multiple query strings, use the '&' character.<br><br>
-                For example, type in: "localhost:3000/example/edmund/21?gender=male&surname=teo"<br><br>
-                You will see a query string of { gender: 'male', surname: 'teo' }<br><br>
-                <br><br>
-                Use route parameters when you absolutely must have that data.<br><br>
-                Use query strings when you want to give some optional settings.<br><br>
-            </p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About me</a></li>
+                <li><a href="contact">Contact me</a></li>
+            </ul>
+        </nav>
+        <div id="main-body">
+            <h1>
+                <div class="retroshadow">NOTES</div>
+            </h1>
+            <form id="main-form" action="/notes" method="POST">
+                <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+                <input type="submit" class="ghost-button" value="Read notes">
+            </form>
+            <div id="notes">
+                <h2>Working with Express Http Get Request, Route Params and Query Strings</h2>
+                <p>
+                    In "app.js", we already have one route, which returns 'Hello world!'.<br><br>
+                    Now we'll give it another route.<br><br>
+                    To run the server, in VS code cmd, type in: node app<br><br>
+                    To close server, press Ctrl-C<br><br>
+                    Go to browser and type: "localhost:3000/example".<br><br>
+                    You'll see "Hitting example route".<br><br>
+                    <br><br>
+                    We'll use route parameters to capture values specified at their position in the url.<br><br>
+                    In "app.js", we will extend the "/example" route such that when we type in: localhost:3000/example/edmund/21<br><br>
+                    You'll see that the message is personalised and the webpage shows 'edmund : 21'<br><br>
+                    This is how you get data from the user using route parameters.<br><br>
+                    <br><br>
+                    There is also another data you can send back called query strings.<br><br>
+                    In a url, the query string is the part that starts with a question mark ('?').<br><br>
+                    It can be accessed using "req.query".<br><br>
+                    Now go to browser and type: "localhost:3000/example/edmund/21?gender=male"<br><br>
+                    The webpage will show the same thing as before, but you'll see in the VS code cmd that the query string is { gender: 'male' }<br><br>
+                    To pass multiple query strings, use the '&' character.<br><br>
+                    For example, type in: "localhost:3000/example/edmund/21?gender=male&surname=teo"<br><br>
+                    You will see a query string of { gender: 'male', surname: 'teo' }<br><br>
+                    <br><br>
+                    Use route parameters when you absolutely must have that data.<br><br>
+                    Use query strings when you want to give some optional settings.<br><br>
+                </p>
+            </div>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="1"/> 
+                <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
+            </form>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="3"/> 
+                <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
+            </form>
         </div>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="1"/> 
-            <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
-        </form>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="3"/> 
-            <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
-        </form>
     </body>
 </html>

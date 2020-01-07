@@ -3,7 +3,30 @@
     <head>
         <title>Notes for express web framework</title>
         <style>
-            body {
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding-left:15%;
+                overflow: hidden;
+                background-color: #333;
+                border-radius: 5px;
+            }
+            nav li {
+                float: left;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav li a {
+                display: block;
+                color: grey;
+                text-align: center;
+                padding: 20px 15px;
+                text-decoration: none;
+            }
+            nav li a:hover {
+                color: white;
+            }
+            #main-body {
                 width: 800px;
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
@@ -82,18 +105,27 @@
         </style>
     </head>
     <body>
-        <h1>
-            <div class="retroshadow">NOTES</div>
-        </h1>
-        <form action="/notes" method="POST">
-            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
-            <input type="submit" class="ghost-button" value="Read notes">
-        </form>
-        <div id="notes">
-            <h2>Oops! Seems like you've entered an invalid input!</h2>
-            <p>
-                Please enter an integer from 1 to 10.
-            </p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About me</a></li>
+                <li><a href="contact">Contact me</a></li>
+            </ul>
+        </nav>
+        <div id="main-body">
+            <h1>
+                <div class="retroshadow">NOTES</div>
+            </h1>
+            <form action="/notes" method="POST">
+                <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+                <input type="submit" class="ghost-button" value="Read notes">
+            </form>
+            <div id="notes">
+                <h2>Oops! Seems like you've entered an invalid input!</h2>
+                <p>
+                    Please enter an integer from 1 to 10.
+                </p>
+            </div>
         </div>
     </body>
 </html>

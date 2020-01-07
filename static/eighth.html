@@ -3,7 +3,30 @@
     <head>
         <title>Notes for express web framework</title>
         <style>
-            body {
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding-left:15%;
+                overflow: hidden;
+                background-color: #333;
+                border-radius: 5px;
+            }
+            nav li {
+                float: left;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav li a {
+                display: block;
+                color: grey;
+                text-align: center;
+                padding: 20px 15px;
+                text-decoration: none;
+            }
+            nav li a:hover {
+                color: white;
+            }
+            #main-body {
                 width: 800px;
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
@@ -110,55 +133,64 @@
         </style>
     </head>
     <body>
-        <h1>
-            <div class="retroshadow">NOTES</div>
-        </h1>
-        <form id="main-form" action="/notes" method="POST">
-            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
-            <input type="submit" class="ghost-button" value="Read notes">
-        </form>
-        <div id="notes">
-            <h2>Getting Started With EJS Templates With Express</h2>
-            <p>
-                EJS is a template language which allows us to write more dynamic web pages.<br><br>
-                First we have to install EJS, in VS code cmd, type in: npm install ejs<br><br>
-                You should see changes to package.json and package-lock.json files and node_modules folder.<br><br>
-                Create a new file "template.js" inside the programs folder.<br><br>
-                Create a new folder called "views" inside the programs folder.<br><br>
-                Then create a new file "mytemplate.ejs" inside the views folder.<br><br>
-                In "mytemplate.ejs", the "exampleVar" enclosed within the tags "<%=" and "%>" can be changed dynamically, 
-                based on the javascript file.<br><br>
-                To run the server, in VS code cmd, type in: node template<br><br>
-                To close server, press Ctrl-C<br><br>
-                Go to browser and type: "localhost:3000/books".<br><br>
-                You'll see that the webpage will show the same template in mytemplate.ejs but "exampleVar" is replaced with "books".<br><br>
-                Search results get dynamically added to webpage.<br><br>
-                <br><br>
-                Now we'll show multiple items in an array using for loop in EJS.<br><br>
-                Create a new file "template2.js" inside the programs folder.<br><br>
-                Then create a new file "mytemplate2.ejs" inside the views folder.<br><br>
-                To run the server, in VS code cmd, type in: node template2<br><br>
-                To close server, press Ctrl-C<br><br>
-                Go to browser and type: "localhost:3000" and you'll see the list.<br><br>
-                With EJS, that list will change dynamically, if the array in javascript changes, so will it in EJS.<br><br>
-                <br><br>
-                Now we'll use if-else statements in EJS.<br><br>
-                Create a new file "template3.js" inside the programs folder.<br><br>
-                Then create a new file "mytemplate3.ejs" inside the views folder.<br><br>
-                To run the server, in VS code cmd, type in: node template3<br><br>
-                To close server, press Ctrl-C<br><br>
-                Go to browser and type: "localhost:3000" and you'll see the list.<br><br>
-                As per EJS, if-else statements also have dynamic properties.<br><br>
-                In other words, if the age of a person is changed in javascript, the output in EJS might change.<br><br>
-            </p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About me</a></li>
+                <li><a href="contact">Contact me</a></li>
+            </ul>
+        </nav>
+        <div id="main-body">
+            <h1>
+                <div class="retroshadow">NOTES</div>
+            </h1>
+            <form id="main-form" action="/notes" method="POST">
+                <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+                <input type="submit" class="ghost-button" value="Read notes">
+            </form>
+            <div id="notes">
+                <h2>Getting Started With EJS Templates With Express</h2>
+                <p>
+                    EJS is a template language which allows us to write more dynamic web pages.<br><br>
+                    First we have to install EJS, in VS code cmd, type in: npm install ejs<br><br>
+                    You should see changes to package.json and package-lock.json files and node_modules folder.<br><br>
+                    Create a new file "template.js" inside the programs folder.<br><br>
+                    Create a new folder called "views" inside the programs folder.<br><br>
+                    Then create a new file "mytemplate.ejs" inside the views folder.<br><br>
+                    In "mytemplate.ejs", the "exampleVar" enclosed within the tags "<%=" and "%>" can be changed dynamically, 
+                    based on the javascript file.<br><br>
+                    To run the server, in VS code cmd, type in: node template<br><br>
+                    To close server, press Ctrl-C<br><br>
+                    Go to browser and type: "localhost:3000/books".<br><br>
+                    You'll see that the webpage will show the same template in mytemplate.ejs but "exampleVar" is replaced with "books".<br><br>
+                    Search results get dynamically added to webpage.<br><br>
+                    <br><br>
+                    Now we'll show multiple items in an array using for loop in EJS.<br><br>
+                    Create a new file "template2.js" inside the programs folder.<br><br>
+                    Then create a new file "mytemplate2.ejs" inside the views folder.<br><br>
+                    To run the server, in VS code cmd, type in: node template2<br><br>
+                    To close server, press Ctrl-C<br><br>
+                    Go to browser and type: "localhost:3000" and you'll see the list.<br><br>
+                    With EJS, that list will change dynamically, if the array in javascript changes, so will it in EJS.<br><br>
+                    <br><br>
+                    Now we'll use if-else statements in EJS.<br><br>
+                    Create a new file "template3.js" inside the programs folder.<br><br>
+                    Then create a new file "mytemplate3.ejs" inside the views folder.<br><br>
+                    To run the server, in VS code cmd, type in: node template3<br><br>
+                    To close server, press Ctrl-C<br><br>
+                    Go to browser and type: "localhost:3000" and you'll see the list.<br><br>
+                    As per EJS, if-else statements also have dynamic properties.<br><br>
+                    In other words, if the age of a person is changed in javascript, the output in EJS might change.<br><br>
+                </p>
+            </div>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="7"/> 
+                <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
+            </form>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="9"/> 
+                <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
+            </form>
         </div>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="7"/> 
-            <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
-        </form>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="9"/> 
-            <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
-        </form>
     </body>
 </html>

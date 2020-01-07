@@ -3,7 +3,30 @@
     <head>
         <title>Notes for express web framework</title>
         <style>
-            body {
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding-left:15%;
+                overflow: hidden;
+                background-color: #333;
+                border-radius: 5px;
+            }
+            nav li {
+                float: left;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav li a {
+                display: block;
+                color: grey;
+                text-align: center;
+                padding: 20px 15px;
+                text-decoration: none;
+            }
+            nav li a:hover {
+                color: white;
+            }
+            #main-body {
                 width: 800px;
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
@@ -110,42 +133,51 @@
         </style>
     </head>
     <body>
-        <h1>
-            <div class="retroshadow">NOTES</div>
-        </h1>
-        <form id="main-form" action="/notes" method="POST">
-            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
-            <input type="submit" class="ghost-button" value="Read notes">
-        </form>
-        <div id="notes">
-            <h2>Http Post Request with Express and Body Parser Module</h2>
-            <p>
-                A http post request is typically used when working with forms.<br><br>
-                Say we have a http file with an email field and a password field and a submit button.<br><br>
-                Hitting the submit button will be an example of a post request.<br><br>
-                We're going to use a module to parse the form data for us.<br><br>
-                We have to first install the body parser module.<br><br>
-                In VS code cmd, type in: npm install body-parser<br><br>
-                In your package.json, you should see a new "body-parser" dependency.<br><br>
-                There should also be some changes in node_modules > body-parser > package.json file.<br><br>
-                Now create a "demo2.js" file inside the programs folder.<br><br>
-                Change static/index.html to have a form with three inputs, one for email and one for password, both are "text" type, 
-                and the last input of "submit" type.<br><br>
-                Also change the form tag to include action="/" method="POST"<br><br>
-                To run the server, in VS code cmd, type in: node demo2<br><br>
-                To close server, press Ctrl-C<br><br>
-                Go to browser and type: "localhost:3000" and enter some data into the html form and submit.<br><br>
-                You'll see that the data is posted to the server and you've gotten back a response, like { email: 'abc', pass: '123' }<br><br>
-                Usually you'll also do something else with the data, such as send it to a database like MySQL etc.<br><br>
-            </p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About me</a></li>
+                <li><a href="contact">Contact me</a></li>
+            </ul>
+        </nav>
+        <div id="main-body">
+            <h1>
+                <div class="retroshadow">NOTES</div>
+            </h1>
+            <form id="main-form" action="/notes" method="POST">
+                <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+                <input type="submit" class="ghost-button" value="Read notes">
+            </form>
+            <div id="notes">
+                <h2>Http Post Request with Express and Body Parser Module</h2>
+                <p>
+                    A http post request is typically used when working with forms.<br><br>
+                    Say we have a http file with an email field and a password field and a submit button.<br><br>
+                    Hitting the submit button will be an example of a post request.<br><br>
+                    We're going to use a module to parse the form data for us.<br><br>
+                    We have to first install the body parser module.<br><br>
+                    In VS code cmd, type in: npm install body-parser<br><br>
+                    In your package.json, you should see a new "body-parser" dependency.<br><br>
+                    There should also be some changes in node_modules > body-parser > package.json file.<br><br>
+                    Now create a "demo2.js" file inside the programs folder.<br><br>
+                    Change static/index.html to have a form with three inputs, one for email and one for password, both are "text" type, 
+                    and the last input of "submit" type.<br><br>
+                    Also change the form tag to include action="/" method="POST"<br><br>
+                    To run the server, in VS code cmd, type in: node demo2<br><br>
+                    To close server, press Ctrl-C<br><br>
+                    Go to browser and type: "localhost:3000" and enter some data into the html form and submit.<br><br>
+                    You'll see that the data is posted to the server and you've gotten back a response, like { email: 'abc', pass: '123' }<br><br>
+                    Usually you'll also do something else with the data, such as send it to a database like MySQL etc.<br><br>
+                </p>
+            </div>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="3"/> 
+                <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
+            </form>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="5"/> 
+                <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
+            </form>
         </div>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="3"/> 
-            <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
-        </form>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="5"/> 
-            <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
-        </form>
     </body>
 </html>

@@ -3,7 +3,30 @@
     <head>
         <title>Notes for express web framework</title>
         <style>
-            body {
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding-left:15%;
+                overflow: hidden;
+                background-color: #333;
+                border-radius: 5px;
+            }
+            nav li {
+                float: left;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav li a {
+                display: block;
+                color: grey;
+                text-align: center;
+                padding: 20px 15px;
+                text-decoration: none;
+            }
+            nav li a:hover {
+                color: white;
+            }
+            #main-body {
                 width: 800px;
                 margin: 0 auto;
                 font-family: Arial, Helvetica, sans-serif;
@@ -110,32 +133,41 @@
         </style>
     </head>
     <body>
-        <h1>
-            <div class="retroshadow">NOTES</div>
-        </h1>
-        <form id="main-form" action="/notes" method="POST">
-            <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
-            <input type="submit" class="ghost-button" value="Read notes">
-        </form>
-        <div id="notes">
-            <h2>User Input Validation with JOI Validating Nested Object and Arrays</h2>
-            <p>
-                To make it easier to undertstand, we'll take out all the express stuff and just simulate a user's request for example.<br><br>
-                To run the code, in VS code cmd, type in: node validate<br><br>
-                JOI should work as expected for both valid and invalid data.<br><br>
-                For valid data, you should see everything in personalInfo.<br><br>
-                For invalid data, you'll see 'ValidationError' and a message containing the details such as
-                '"streetAddress" is not allowed to be empty' if you changed the streetAddress to an empty string,
-                because joi declared it to be required.<br><br>
-            </p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About me</a></li>
+                <li><a href="contact">Contact me</a></li>
+            </ul>
+        </nav>
+        <div id="main-body">
+            <h1>
+                <div class="retroshadow">NOTES</div>
+            </h1>
+            <form id="main-form" action="/notes" method="POST">
+                <input name="topic" type="text" class="ghost-input" placeholder="Enter topic number" required>
+                <input type="submit" class="ghost-button" value="Read notes">
+            </form>
+            <div id="notes">
+                <h2>User Input Validation with JOI Validating Nested Object and Arrays</h2>
+                <p>
+                    To make it easier to undertstand, we'll take out all the express stuff and just simulate a user's request for example.<br><br>
+                    To run the code, in VS code cmd, type in: node validate<br><br>
+                    JOI should work as expected for both valid and invalid data.<br><br>
+                    For valid data, you should see everything in personalInfo.<br><br>
+                    For invalid data, you'll see 'ValidationError' and a message containing the details such as
+                    '"streetAddress" is not allowed to be empty' if you changed the streetAddress to an empty string,
+                    because joi declared it to be required.<br><br>
+                </p>
+            </div>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="6"/> 
+                <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
+            </form>
+            <form action="/notes" method="POST">
+                <input name="topic" type="hidden" value="8"/> 
+                <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
+            </form>
         </div>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="6"/> 
-            <input id="button_previous" class="link" align="left" type="submit" value="PREVIOUS PAGE"/>
-        </form>
-        <form action="/notes" method="POST">
-            <input name="topic" type="hidden" value="8"/> 
-            <input id="button_next" class="link" align="right" type="submit" value="NEXT PAGE"/>
-        </form>
     </body>
 </html>
