@@ -13,6 +13,14 @@ app.get('/about', (req,res) => {
     res.sendFile(path.join(__dirname, 'static', 'about.html'));  
 });
 
+app.get('/skills', (req,res) => {
+    res.sendFile(path.join(__dirname, 'static', 'skills.html'));  
+});
+
+app.get('/projects', (req,res) => {
+    res.sendFile(path.join(__dirname, 'static', 'projects.html'));  
+});
+
 app.get('/contact', (req,res) => {
     res.sendFile(path.join(__dirname, 'static', 'contact.html'));  
 });
